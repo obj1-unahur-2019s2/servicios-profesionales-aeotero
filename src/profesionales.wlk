@@ -1,4 +1,5 @@
-// esta clase está completa, no necesita nada más
+import universidad.*
+
 class ProfesionalAsociado {
 	var universidad
 	
@@ -10,20 +11,22 @@ class ProfesionalAsociado {
 	method honorariosPorHora() { return 3000 }
 }
 
-
-// a esta clase le faltan métodos
 class ProfesionalVinculado {
-	var universidad
+	var property universidad
 	
-	method universidad() { return universidad }
-	method universidad(univ) { universidad = univ }
+	method honorariosPorHora() { return universidad.honorariosRecomendados()}
+	
+	method provinciasDondePuedeTrabajar(){
+		return #{universidad.ubicacion()}
+	}
 }
 
-
-// a esta clase le faltan atributos y métodos
 class ProfesionalLibre {
-	var universidad
+	var property universidad
+	var property honorariosPorHora = 0
+	var provinciasDondePuedeTrabajar = #{}
 	
-	method universidad() { return universidad }
-	method universidad(univ) { universidad = univ }
+	method provinciasDondePuedeTrabajar(prov){
+		provinciasDondePuedeTrabajar.add(prov)
+	}
 }
