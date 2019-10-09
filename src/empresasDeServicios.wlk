@@ -1,5 +1,6 @@
 import profesionales.*
 import universidad.*
+import solicitantes.*
 
 class EmpresaDeServicios {
 	var empleados = #{}
@@ -33,7 +34,12 @@ class EmpresaDeServicios {
 	}
 	
 	method genteAcotada(){
+		return (empleados.all({e => e.provinciasDondePuedeTrabajar().size() <= 3}))
 		// return empleados.all({e=> e.provinciadondepuedetrabajar().size() <= 3)
+	}
+	
+	method puedeSatisfacerA(solicitante){
+		return empleados.any({e=> solicitante.puedeSerAtendida(e)})
 	}
 }
 
